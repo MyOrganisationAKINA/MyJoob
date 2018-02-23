@@ -1,0 +1,14 @@
+{% extends "::Layout/layout.html.twig" %}
+
+{% block Content %}
+
+
+ <div class="container">
+
+  {%for bien in reservations%}
+  {{bien.dateDeReservation}}
+  {%endfor%}
+</div>
+ 
+
+{% endblock %}
