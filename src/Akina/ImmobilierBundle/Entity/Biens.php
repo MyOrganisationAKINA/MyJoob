@@ -181,29 +181,6 @@ class Biens
         return $this->description;
     }
 
-    /**
-     * Set propritaire
-     *
-     * @param \Akina\ImmobilierBundle\Entity\Proprietaire $propritaire
-     *
-     * @return Biens
-     */
-    public function setPropritaire(\Akina\ImmobilierBundle\Entity\Proprietaire $propritaire = null)
-    {
-        $this->Propritaire = $propritaire;
-
-        return $this;
-    }
-
-    /**
-     * Get propritaire
-     *
-     * @return \Akina\ImmobilierBundle\Entity\Proprietaire
-     */
-    public function getPropritaire()
-    {
-        return $this->Propritaire;
-    }
 
     /**
      * Set type
@@ -232,11 +209,11 @@ class Biens
     /**
      * Set localite
      *
-     * @param \SNT\ImmobilierBundle\Entity\Localite $localite
+     * @param \Akina\ImmobilierBundle\Entity\Localite $localite
      *
      * @return Biens
      */
-    public function setLocalite(\SNT\ImmobilierBundle\Entity\Localite $localite = null)
+    public function setLocalite(\Akina\ImmobilierBundle\Entity\Localite $localite = null)
     {
         $this->Localite = $localite;
 
@@ -246,7 +223,7 @@ class Biens
     /**
      * Get localite
      *
-     * @return \SNT\ImmobilierBundle\Entity\Localite
+     * @return \Akina\ImmobilierBundle\Entity\Localite
      */
     public function getLocalite()
     {

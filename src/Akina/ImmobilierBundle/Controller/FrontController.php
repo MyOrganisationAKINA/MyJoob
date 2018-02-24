@@ -70,11 +70,13 @@ $em2 = $this->getDoctrine()->getManager();
      * @Route("/test")
      */
 
-        $em = $this->getDoctrine()->getManager();
+       /*test1 $em = $this->getDoctrine()->getManager();
               $bien= $em->getRepository('AkinaImmobilierBundle:Biens');
               $biens = $bien ->findBiens(0,0,0);
 
-        echo count($biens);
+        echo count($biens);*/
+
+        
     }
 
     /**

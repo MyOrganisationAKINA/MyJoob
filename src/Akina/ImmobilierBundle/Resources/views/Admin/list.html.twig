@@ -1,6 +1,12 @@
-{% extends "::Layout/layout.html.twig" %}
+{% extends "::LayoutAdmin/layout.html.twig" %}
+ {% block form %}
+ <h1 class="my-4 list-group-item">Recherche de bien</h1>
+<div class="form-group list-group-item">
 
-{% block Content %}
+
+</div>
+  {% endblock %}
+{% block biens %}
 <script >$(document).ready( function () {
     $('#example').DataTable();
 } );</script>
@@ -22,13 +28,14 @@ Portail Utilisateur
 <th>Localite</th>
 <th>Type</th>
 <th>Proprietaire</th>
+<th>Détails</th>
 </tr>
 </thead>
 <tbody>
 {%for bien in reservations%}
 <tr>
 <td>
-{%for bien in reservations%}
+
 </td>
 
 <td>{{bien.nomBien}}</td>
@@ -46,7 +53,7 @@ Occupé
 <td>{{bien.Type.libelle}}</td>
 
 <td>{{bien.Proprietaire.numeroPiece}}</td>
-<td></td>
+<td><a href="#">Détails</a></td>
 <td></td>
 </tr>
 

@@ -4,6 +4,12 @@
 
 {% block body %}
 <h1>Welcome to the Admin:add page</h1>
-{{ form(form) }}
-
+{{form_start(formI)}} 
+            {{form_widget(formI)}}
+            <input class="btn btn-success" type="submit" value="Ajouter" /> 
+        {{form_end(formI)}}
+{{form_start(formB)}} 
+            {{form_widget(formB)}}
+            <input class="btn btn-success" type="submit" value="Ajouter" /> 
+        {{form_end(formB)}}
 {% endblock %}

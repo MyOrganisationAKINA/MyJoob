@@ -1,15 +1,13 @@
 <?php
-namespace AkinaImmobilierBundle\EventListener;
+namespace Akina\ImmobilierBundle\EventListener;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
-use AkinaImmobilierBundle\Entity\Biens;
-use AkinaImmobilierBundle\Entity\Image;
-use AkinaImmobilierBundle\Entity\ImageType;
-use AKinaImmobilierBundle\ImageUpload;
+use Akina\ImmobilierBundle\Entity\Image;
+use Akina\ImmobilierBundle\ImageUpload;
 
-class ImageUploadListener
+class UploadImageListener
 {
     private $uploader;
 
@@ -35,7 +33,7 @@ class ImageUploadListener
     private function uploadFile($entity)
     {
         // upload only works for Product entities
-        if (!$entity instanceof Plat) {
+        if (!$entity instanceof Image) {
             return;
         }
 
@@ -50,4 +48,3 @@ class ImageUploadListener
         $entity->setImage($fileName);
     }
 }
-

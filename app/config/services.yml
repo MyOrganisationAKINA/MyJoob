@@ -33,3 +33,13 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    akina_immobilier.image_uploader:
+        class: Akina\ImmobilierBundle\ImageUpload
+        arguments: ['%images_directory%']
+  
+    akina_immobilier.doctrine_image_listener:
+            class: Akina\ImmobilierBundle\EventListener\UploadImageListener
+            arguments: ['@akina_immobilier.image_uploader']
+            tags:
+                - { name: doctrine.event_listener, event: prePersist }
+                - { name: doctrine.event_listener, event: preUpdate }

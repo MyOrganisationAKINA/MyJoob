@@ -52,25 +52,25 @@ $em2 = $this->getDoctrine()->getManager();
      */
     public function addAction(Request $request)
     {
-        $advert = new Image();
+        $image = new Image();
 
-    $form   = $this->get('form.factory')->create(ImageType::class, $advert);
+    $formI   = $this->get('form.factory')->create(ImageType::class, $image);
 
 
-    if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+    if ($request->isMethod('POST') && $formI->handleRequest($request)->isValid()) {
 
       // Ajoutez cette ligne :
 
       // c'est elle qui déplace l'image là où on veut les stocker
 
-      $advert->getImage()->upload();
+     // $advert->getImage()->upload();
 
 
       // Le reste de la méthode reste inchangé
 
       $em = $this->getDoctrine()->getManager();
 
-      $em->persist($advert);
+      $em->persist($image);
 
       $em->flush();
 
@@ -79,7 +79,34 @@ $em2 = $this->getDoctrine()->getManager();
       // ...
 
     }
-        return $this->render('AkinaImmobilierBundle:Admin:add.html.twig', array("form"=>$form->createView()
+    $bien = new Biens();
+
+    $formB   = $this->get('form.factory')->create(BiensType::class, $bien);
+
+
+    if ($request->isMethod('POST') && $formB->handleRequest($request)->isValid()) {
+
+      // Ajoutez cette ligne :
+
+      // c'est elle qui déplace l'image là où on veut les stocker
+
+     // $advert->getImage()->upload();
+
+
+      // Le reste de la méthode reste inchangé
+
+      $em = $this->getDoctrine()->getManager();
+
+      $em->persist($bien);
+
+      $em->flush();
+
+      
+
+      // ...
+
+    }
+        return $this->render('AkinaImmobilierBundle:Admin:add.html.twig', array("formI"=>$formI->createView(),"formB"=>$formB->createView()
             // ...
         ));
     }

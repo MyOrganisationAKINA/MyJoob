@@ -5,7 +5,8 @@ namespace Akina\ImmobilierBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class BiensType extends AbstractType
 {
@@ -14,7 +15,7 @@ class BiensType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomBien')->add('etat')->add('description')->add('image');
+        $builder->add('nomBien')->add('etat')->add('prix',NumberType::class)->add('description')->add('bienParent')->add('Proprietaire')->add('Image', FileType::class)->add('Type')->add('Localite');
     }
     
     /**
